@@ -1,0 +1,44 @@
+[project]
+name = "sromany-toolkit"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Stephane Romany",email = "stephrm972@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "sromany_toolkit", from = "src"}]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+exclude = [ "bin", "guidelines", "notebooks", "tests", "validation_tests" ]
+
+
+[tool.ruff.lint]
+ignore = [
+    "S113", # Usage of requests without timeout
+    "N803", # Argument name should be lowercase (Will be an issue for X_train, X_test naming convention).
+    "N806", # Variable in function should be lowercase (Will be an issue for the same reason as N803).
+ ]
+select = [ # Sets of rules to check for
+    "I",    # isort
+    "S",    # bandit
+    "E",    # pycodestyle
+    "W",    # pycodestyle
+    "N",    # pep8-naming
+    "T20",  # flake8-print
+    "ANN",  # flake8-annotationss
+    "ARG",  # flake8-unused-arguments
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google" # The type of docstring style to follow. Will be elaborated on in the module about docstrings.
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0", "click==8.2.1", "loguru-0.7.3"]
+build-backend = "poetry.core.masonry.api"
