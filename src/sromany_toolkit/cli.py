@@ -12,7 +12,16 @@ from sromany_toolkit.helpers.loadings import loading_bar
     help="The person to greet.",
 )
 def hello(name: str) -> None:
-    """Say hello to NAME."""
+    """
+    Say hello to <name> from command-line argument
+
+    Args:
+        name:
+
+    Returns: Nothing
+
+    Example:
+    """
     click.echo(f"Hello {name}!")
     logger.log(logging.INFO, "✅ Hello executed.")
 
